@@ -18,7 +18,7 @@
       $TrabajadoresA = $_POST["TrabajadoresA"];
       $TrabajadoresB = $_POST["TrabajadoresB"];
       $TrabajadoresC = $_POST["TrabajadoresC"];
-      $SQL = "INSERT INTO empresas(TipoDocumento,Documento,RazonSocial,NombreComercial,Departamento,Ciudad,Direccion,Telefono,ActividadEconomica,Email,Trabajadores,TrabajadoresA,TrabajadoresB,TrabajadoresC) VALUES('$TipoDocumento','$Documento','$RazonSocial','$NombreComercial','$Departamento','$Ciudad','$Direccion','$Direccion','$Telefono','$ActividadEconomica','$Email',$Trabajadores,$TrabajadoresA,$TrabajadoresB,$TrabajadoresC)";
+      $SQL = "INSERT INTO empresas(TipoDocumento,Documento,RazonSocial,NombreComercial,Departamento,Ciudad,Direccion,Telefono,ActividadEconomica,Email,Trabajadores,TrabajadoresA,TrabajadoresB,TrabajadoresC) VALUES ('$TipoDocumento','$Documento','$RazonSocial','$NombreComercial','$Departamento','$Ciudad','$Direccion','$Direccion','$Telefono','$ActividadEconomica','$Email',$Trabajadores,$TrabajadoresA,$TrabajadoresB,$TrabajadoresC)";
       if(mysqli_query($idCone,$SQL))
       {
         $mensaje = "Empresa $NombreComercial ingresada con exito";
@@ -27,7 +27,7 @@
       {
         $mensaje = "Error ingresando la empresa $NombreComercial";
       }
-    #mysqli_close($idCone);
+    mysqli_close($idCone);
     }
   ?>
 
@@ -36,7 +36,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Agregar Actividad</title>
+  <title>Agregar Empresa</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -48,7 +48,7 @@
 <div class = "container">
   <br>
   <br>
-  <h1>Agregar Actividad</h1>  
+  <h1>Agregar Empresa</h1>  
 </div>
 <br>
 <br>

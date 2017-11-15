@@ -6,7 +6,7 @@
     if(isset($_POST["submit"]))
     {
       $DocumentoX = $_POST["DocumentoX"];
-      $SQL = "SELECT * FROM empresas WHERE (Documento LIKE '$DocumentoX')";
+      $SQL = "SELECT * FROM empresas WHERE (Documento LIKE '%$DocumentoX%')";
       $Registro = mysqli_query($idCone,$SQL);
     #mysqli_close($idCone);
     }
@@ -27,7 +27,7 @@
   <div class="container">
     <br>
     <br>
-    <h1>Consulta de empresas por nombre</h1>
+    <h1>Consulta de empresas por documento</h1>
 
   <nav class="navbar navbar-inverse navbar-fixed-top bg-inverse">
     <div class="container-fluid">

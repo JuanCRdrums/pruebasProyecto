@@ -36,7 +36,7 @@
 <div class = "container">
   <br>
   <br>
-  <h1>Agregar Atividad</h1>  
+  <h1>Agregar Actividad</h1>  
 </div>
 
   <nav class="navbar navbar-inverse navbar-fixed-top bg-inverse">

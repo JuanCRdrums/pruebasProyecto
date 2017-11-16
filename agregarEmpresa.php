@@ -27,7 +27,7 @@
       {
         $mensaje = "Error ingresando la empresa $NombreComercial";
       }
-    mysqli_close($idCone);
+    #mysqli_close($idCone);
     }
   ?>
 

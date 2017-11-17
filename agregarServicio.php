@@ -1,30 +1,40 @@
   <?php
     $mensaje = "";
-    if(isset($_POST["submit"]))
-    {
-      require("conexion.php");
-      $idCone = conexion();
-      $Documento = $_POST["Documento"];
-      $NombreActividad = $_POST["NombreActividad"];
-      $Fecha = $_POST["Fecha"];
-      $Comentarios = $_POST["Comentarios"];
-      $SQL1 = "SELECT * FROM actividades WHERE (Nombre LIKE '$NombreActividad')";
-      $Registro1 = mysqli_query($idCone,$SQL1);
-      $array = mysqli_fetch_array($Registro1);
-      while($Fila = mysqli_fetch_array($Registro1))
+    require("conexion.php");
+    $idCone = conexion();
+    $actividades = mysqli_query($idCone,"SELECT * FROM actividades");
+      if(isset($_POST["submit"]))
       {
-        $SQL2 = "INSERT INTO servicios(CodEmpresa,CodActividad,Fecha,Comentarios) VALUES('$Documento',$Fila[Codigo],'$Fecha','$Comentarios')";
+        $Documento = $_POST["Documento"];
+        $NombreActividad = $_POST["NombreActividad"];
+        $Fecha = $_POST["Fecha"];
+        $Comentarios = $_POST["Comentarios"];
+        $SQL1 = "SELECT * FROM actividades WHERE (Nombre LIKE '$NombreActividad')";
+        $Registro1 = mysqli_query($idCone,$SQL1);
+        while($Fila = mysqli_fetch_array($Registro1))
+        {
+          $SQL2 = "INSERT INTO servicios(CodEmpresa,CodActividad,Fecha,Comentarios) VALUES('$Documento',$Fila[Codigo],'$Fecha','$Comentarios')";
+        }
+        $validacion = mysqli_query($idCone,"SELECT * FROM empresas WHERE (Documento LIKE '$Documento')");
+        if(mysqli_num_rows($validacion) != 0)//se valida que el documento sí exista en la base de datos
+        {
+          if(mysqli_query($idCone,$SQL2))
+          {
+            $mensaje = "Servicio programado con exito";
+          }
+          else
+          {
+            $mensaje = "Error programando el servicio";
+          }
+        }
+        else
+        {
+          $mensaje = "No existe una empresa con documento $Documento en la base de datos";
+        }
+
+      //mysqli_close($idCone);
       }
-      if(mysqli_query($idCone,$SQL2))
-      {
-        $mensaje = "Servicio programado con exito";
-      }
-      else
-      {
-        $mensaje = "Error programando el servicio";
-      }
-    #mysqli_close($idCone);
-    }
+      
   ?>
 
 
@@ -72,7 +82,7 @@
     </div>
   </nav>
 
-<form class="form-horizontal" role = "form" method = "post" action="agregarActividad.php">
+<form class="form-horizontal" role = "form" method = "post" action="agregarServicio.php">
   <div class = "form-group">
     <label for = "Documento" class = "col-sm-2 control-label">Documento</label>
     <div class="col-sm-10">
@@ -83,9 +93,8 @@
   <div class = "form-group">
     <label for = "NombreActividad" class = "col-sm-2 control-label">Nombre de la actividad</label>
     <div class="col-sm-10">
-      <select class="form-control" id="NombreActividad">
+      <select class="form-control" id="NombreActividad" name="NombreActividad">
         <?php
-          $actividades = mysqli_query($idCone,"SELECT Nombre FROM actividades");
           while($Fila = mysqli_fetch_array($actividades))
           {
             echo "<option>$Fila[Nombre]</option>";
@@ -117,7 +126,7 @@
 
   <div class="form-group">
    <div class="col-sm-10 col-sm-offset-2">
-      <?php echo $mensaje; ?>  
+      <?php echo $mensaje;?>  
     </div>
   </div>
 

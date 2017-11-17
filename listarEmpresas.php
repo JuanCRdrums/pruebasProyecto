@@ -18,6 +18,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.php">Index</a></li>
         <li><a href="listarEmpresas.php">Lista de empresas</a></li>
+        <li><a href="listarActividades.php">Lista de actividades</a></li>
         <li><a href="agregarActividad.php">Agregar actividad</a></li>
         <li><a href="agregarServicio.php">Programar servicio</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulta de empresas

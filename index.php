@@ -13,7 +13,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top bg-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.php">Statium</a>
+        <a class="navbar-brand" href="index.php"><img src="sources/logoStatium.jpg" width="100" height="61" class="img-thumbnail"></a>
       </div>
 
       <ul class="nav navbar-nav">

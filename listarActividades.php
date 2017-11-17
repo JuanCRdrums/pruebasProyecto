@@ -40,7 +40,8 @@
 		<h1>Lista de actividades</h1>
 		<table class = "table table-striped">
 			<thead>
-				<tr>
+
+      	<tr>
 					<th>Nombre de la actividad</th>
 					<th>Descripción</th>
 				</tr>
@@ -57,7 +58,7 @@
 						echo "<tr>";
 						echo "<td>$Fila[Nombre]";
 						echo "<td>$Fila[Descripcion]";
-					}
+					}0
 					mysqli_free_result($Registro);
 					mysqli_close($idCone);
 				?>

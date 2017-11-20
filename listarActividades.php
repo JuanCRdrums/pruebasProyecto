@@ -58,7 +58,7 @@
 						echo "<tr>";
 						echo "<td>$Fila[Nombre]";
 						echo "<td>$Fila[Descripcion]";
-					}0
+					}
 					mysqli_free_result($Registro);
 					mysqli_close($idCone);
 				?>

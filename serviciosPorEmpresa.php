@@ -70,6 +70,7 @@
 				<tr>
 					<th>Documento de la empresa</th>
 					<th>Nombre comercial de la empresa</th>
+          			<th>Nombre de la actividad</th>
           			<th>Fecha del servicio</th>
           			<th>Comentarios</th>
 				</tr>
@@ -82,15 +83,20 @@
 						echo "<tr>";
 						echo "<td>$Fila[CodEmpresa]";
 						$Registro2 = mysqli_query($idCone,"SELECT NombreComercial FROM empresas WHERE (Documento LIKE $Fila[CodEmpresa])");
-			            while($Fila2 = mysqli_fetch_array($Registro2))
-			            {
-			              echo "<td>$Fila2[NombreComercial]";
-			            }
-			            echo "<td>$Fila[Fecha]";
-			            echo "<td>$Fila[Comentarios]";
-			            mysqli_free_result($Registro2);
+		            while($Fila2 = mysqli_fetch_array($Registro2))
+		            {
+		              echo "<td>$Fila2[NombreComercial]";
+		            }
+		            $Registro3 = mysqli_query($idCone,"SELECT Nombre FROM actividades WHERE(Codigo LIKE '$Fila[CodActividad]')");
+		            while($Fila3 = mysqli_fetch_array($Registro3))
+		            {
+		              echo "<td>$Fila3[Nombre]";
+		            }
+		            echo "<td>$Fila[Fecha]";
+		            echo "<td>$Fila[Comentarios]";
 					}
 					mysqli_free_result($Registro);
+          			mysqli_free_result($Registro2);
 					mysqli_close($idCone);
 				?>
 			</tbody>

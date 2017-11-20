@@ -1,12 +1,18 @@
 <?php
     require("conexion.php");
     $idCone = conexion();
+    $mensaje = "";
     $Registro = mysqli_query($idCone,"SELECT * FROM servicios");
     if(isset($_POST["submit"]))
     {
       $DocumentoX = $_POST["DocumentoX"];
       $SQL = "SELECT * FROM servicios WHERE (CodEmpresa LIKE '$DocumentoX')";
       $Registro = mysqli_query($idCone,$SQL);
+      $validacion = mysqli_query($idCone,"SELECT * FROM empresas WHERE (Documento LIKE '$DocumentoX')");
+      if(mysqli_num_rows($validacion) == 0)
+      {
+      	$mensaje = "ERROR: No hay ninguna empresa con documento $DocumentoX en la base de datos";
+      }
     #mysqli_close($idCone);
     }
 ?>
@@ -65,6 +71,8 @@
       </div>
     </form>
 
+    <?php echo $mensaje; ?>
+
 		<table class = "table table-striped">
 			<thead>
 				<tr>
@@ -83,20 +91,20 @@
 						echo "<tr>";
 						echo "<td>$Fila[CodEmpresa]";
 						$Registro2 = mysqli_query($idCone,"SELECT NombreComercial FROM empresas WHERE (Documento LIKE $Fila[CodEmpresa])");
-		            while($Fila2 = mysqli_fetch_array($Registro2))
-		            {
-		              echo "<td>$Fila2[NombreComercial]";
-		            }
-		            $Registro3 = mysqli_query($idCone,"SELECT Nombre FROM actividades WHERE(Codigo LIKE '$Fila[CodActividad]')");
-		            while($Fila3 = mysqli_fetch_array($Registro3))
-		            {
-		              echo "<td>$Fila3[Nombre]";
-		            }
-		            echo "<td>$Fila[Fecha]";
-		            echo "<td>$Fila[Comentarios]";
+			            while($Fila2 = mysqli_fetch_array($Registro2))
+			            {
+			              echo "<td>$Fila2[NombreComercial]";
+			            }
+			            $Registro3 = mysqli_query($idCone,"SELECT Nombre FROM actividades WHERE(Codigo LIKE '$Fila[CodActividad]')");
+			            while($Fila3 = mysqli_fetch_array($Registro3))
+			            {
+			              echo "<td>$Fila3[Nombre]";
+			            }
+			            echo "<td>$Fila[Fecha]";
+			            echo "<td>$Fila[Comentarios]";
+			            mysqli_free_result($Registro2);
 					}
 					mysqli_free_result($Registro);
-          			mysqli_free_result($Registro2);
 					mysqli_close($idCone);
 				?>
 			</tbody>

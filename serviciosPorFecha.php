@@ -84,7 +84,7 @@
   </nav>
 
 
-  	<br><br>
+  	<br><br><br><br>
 		<h1>Servicios por fecha</h1>
 
   <form class="form-horizontal" role = "form" method="post" action="serviciosPorFecha.php">

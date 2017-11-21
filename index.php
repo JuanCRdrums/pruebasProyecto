@@ -39,9 +39,34 @@
           </ul>
         </li>
 
-        <li><a href="listarActividades.php">Lista de actividades</a></li>
-        <li><a href="agregarActividad.php">Agregar actividad</a></li>
-        <li><a href="agregarServicio.php">Programar servicio</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Actividades
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="listarActividades.php">Lista de actividades</a></li>
+            <li><a href="agregarActividad.php">Agregar Actividad</a></li>
+            <li><a href="editarActividad.php">Editar Actividad</a></li>
+            <li><a href="eliminarActividad.php">Eliminar Actividad</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="listarServicios.php">Servicios programados</a></li>
+            <li><a href="agregarServicio.php">Programar servicio</a></li>
+            <li><a href="editarServicio1.php">Editar servicio</a></li>
+            <li><a href="eliminarServicio.php">Eliminar servicio</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulta de servicios
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu-right">
+                <li><a href="serviciosPorActividad.php">Por actividad</a></li>
+                <li><a href="serviciosPorEmpresa.php">Por empresa</a></li>
+                <li><a href="serviciosPorFecha.php">Por Fecha</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+        </li>
     </div>
   </nav>
 

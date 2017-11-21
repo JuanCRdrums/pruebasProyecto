@@ -17,24 +17,31 @@
       </div>
 
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php">Index</a></li>
-        <li><a href="listarEmpresas.php">Lista de empresas</a></li>
+        <li class="active"><a href="index.php">Inicio</a></li>
+
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Empresas
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="listarEmpresas.php">Lista de empresas</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consultar empresas
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu-right">
+
+              <li><a href="empresaPorDocumento.php">Por Documento</a></li>
+              <li><a href="empresaPorNombre.php">Por Nombre</a></li>
+              <li><a href="empresaPorRazon.php">Por Razón Social</a></li>
+              <li><a href="empresaPorDireccion.php">Por Dirección</a></li>
+              <li><a href="empresaPorCiudad.php">Por Ciudad</a></li>
+              <li><a href="empresaPorDepartamento.php">Por Departamento</a></li>              
+                
+              </ul>
+            </li>
+          </ul>
+        </li>
+
         <li><a href="listarActividades.php">Lista de actividades</a></li>
         <li><a href="agregarActividad.php">Agregar actividad</a></li>
         <li><a href="agregarServicio.php">Programar servicio</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulta de empresas
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="empresaPorDocumento.php">Por Documento</a></li>
-            <li><a href="empresaPorNombre.php">Por Nombre</a></li>
-            <li><a href="empresaPorRazon.php">Por Razón Social</a></li>
-            <li><a href="empresaPorDireccion.php">Por Dirección</a></li>
-            <li><a href="empresaPorCiudad.php">Por Ciudad</a></li>
-            <li><a href="empresaPorDepartamento.php">Por Departamento</a></li>
-          </ul>
-        </li>
-      </ul>
-
     </div>
   </nav>
 
